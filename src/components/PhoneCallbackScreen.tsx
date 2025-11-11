@@ -20,12 +20,21 @@ export const PhoneCallbackScreen = ({
   heroImage 
 }: PhoneCallbackScreenProps) => {
   const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("+1");
   const [preferredDay, setPreferredDay] = useState("");
   const [preferredTime, setPreferredTime] = useState("");
   const [error, setError] = useState("");
   const [touched, setTouched] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const [recaptchaWidgetId, setRecaptchaWidgetId] = useState<number | null>(null);
+
+  const countryOptions = [
+    { code: "+1", flag: "🇺🇸", name: "US" },
+    { code: "+1", flag: "🇨🇦", name: "CA" },
+    { code: "+44", flag: "🇬🇧", name: "UK" },
+    { code: "+91", flag: "🇮🇳", name: "IN" },
+    { code: "+61", flag: "🇦🇺", name: "AU" },
+  ];
 
   const hasPhoneNumber = phone.trim().length > 0;
   const buttonText = hasPhoneNumber ? contentSchema.phone.buttonWithPhone : contentSchema.phone.button;
@@ -170,17 +179,37 @@ export const PhoneCallbackScreen = ({
               {contentSchema.phone.label}
             </Label>
             <div className="flex gap-2">
-              <div className="flex items-center gap-2 px-3 h-12 md:h-14 bg-muted rounded-lg border border-border">
-                <span className="text-xl">🇺🇸</span>
-                <span className="font-poppins text-base md:text-lg text-foreground">+1</span>
-              </div>
+              <Select value={countryCode} onValueChange={setCountryCode}>
+                <SelectTrigger className="w-[110px] h-12 md:h-14 rounded-[10px] border-[#D6DAE6] bg-[#F8FAFF] font-poppins">
+                  <SelectValue>
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">{countryOptions.find(c => c.code === countryCode)?.flag}</span>
+                      <span className="text-sm md:text-base">{countryCode}</span>
+                    </div>
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent className="bg-white border-[#D6DAE6] rounded-lg shadow-lg z-50">
+                  {countryOptions.map((country) => (
+                    <SelectItem 
+                      key={`${country.code}-${country.name}`} 
+                      value={country.code}
+                      className="font-poppins hover:bg-[#F2F4FF] cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg">{country.flag}</span>
+                        <span className="text-sm">{country.code}</span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <Input
                 id="phone"
                 type="tel"
                 value={phone}
                 onChange={handlePhoneChange}
-                placeholder="(555) 234-5678"
-                className="flex-1 h-12 md:h-14 text-base md:text-lg font-poppins"
+                placeholder="Enter phone number"
+                className="flex-1 h-12 md:h-14 text-base md:text-lg font-poppins rounded-[10px] border-[#D6DAE6] bg-[#F8FAFF] focus:border-[#4A6FFF] focus-visible:ring-[#4A6FFF]"
               />
             </div>
           </div>
@@ -197,19 +226,23 @@ export const PhoneCallbackScreen = ({
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Preferred Day */}
                 <div className="space-y-2">
-                  <Label className="font-poppins text-sm text-foreground font-medium">
-                    Preferred Day
+                  <Label className="font-poppins text-sm text-[#3A3A3A] font-medium">
+                    Preferred day
                   </Label>
                   <Select value={preferredDay} onValueChange={setPreferredDay}>
-                    <SelectTrigger className="h-12 font-poppins text-sm md:text-base">
+                    <SelectTrigger className="h-12 font-poppins text-sm md:text-base bg-white border-[#D6DAE6] rounded-[10px] shadow-sm text-[#3A3A3A]">
                       <SelectValue placeholder="Select day" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white border-[#D6DAE6] rounded-lg shadow-lg z-50">
                       {contentSchema.phone.dayOptions.map((day) => (
-                        <SelectItem key={day} value={day} className="font-poppins">
+                        <SelectItem 
+                          key={day} 
+                          value={day} 
+                          className="font-poppins text-[#3A3A3A] hover:bg-[#F2F4FF] cursor-pointer"
+                        >
                           {day}
                         </SelectItem>
                       ))}
@@ -219,16 +252,20 @@ export const PhoneCallbackScreen = ({
 
                 {/* Preferred Time */}
                 <div className="space-y-2">
-                  <Label className="font-poppins text-sm text-foreground font-medium">
-                    Preferred Time
+                  <Label className="font-poppins text-sm text-[#3A3A3A] font-medium">
+                    Preferred time
                   </Label>
                   <Select value={preferredTime} onValueChange={setPreferredTime}>
-                    <SelectTrigger className="h-12 font-poppins text-sm md:text-base">
+                    <SelectTrigger className="h-12 font-poppins text-sm md:text-base bg-white border-[#D6DAE6] rounded-[10px] shadow-sm text-[#3A3A3A]">
                       <SelectValue placeholder="Select time" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white border-[#D6DAE6] rounded-lg shadow-lg z-50">
                       {contentSchema.phone.timeOptions.map((time) => (
-                        <SelectItem key={time} value={time} className="font-poppins text-xs md:text-sm">
+                        <SelectItem 
+                          key={time} 
+                          value={time} 
+                          className="font-poppins text-xs md:text-sm text-[#3A3A3A] hover:bg-[#F2F4FF] cursor-pointer"
+                        >
                           {time}
                         </SelectItem>
                       ))}
