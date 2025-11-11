@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 12 88% 55%;
+    --primary: 329 88% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 152 35% 50%;
+    --secondary: 329 70% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 138 30% 90%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 135 42% 35%;
+    --accent: 329 60% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,14 +34,14 @@ All colors MUST be HSL.
 
     --border: 15 40% 88%;
     --input: 15 40% 88%;
-    --ring: 12 88% 55%;
+    --ring: 329 88% 55%;
 
     --radius: 9999px;
 
-    /* Coral Academy brand colors - Reptiles theme */
-    --coral: 12 88% 55%;
-    --deep-leaf-green: 135 42% 35%;
-    --soft-moss: 135 30% 70%;
+    /* Coral Academy brand colors - Roblox theme */
+    --coral: 329 88% 55%;
+    --magenta-deep: 329 60% 40%;
+    --magenta-light: 329 70% 70%;
     --nature-bg: 138 45% 97%;
     --text-dark: 0 0% 10%;
     
@@ -49,15 +49,15 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
     /* Button gradients */
-    --gradient-coral: linear-gradient(180deg, #F46A37 0%, #E85522 100%);
+    --gradient-coral: linear-gradient(180deg, #E63B8E 0%, #D41A75 100%);
   }
 
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 40px rgba(240, 90, 38, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 40px rgba(230, 59, 142, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1);
     }
     50% {
-      box-shadow: 0 0 50px rgba(240, 90, 38, 0.25), 0 8px 24px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 50px rgba(230, 59, 142, 0.25), 0 8px 24px rgba(0, 0, 0, 0.1);
     }
   }
 }

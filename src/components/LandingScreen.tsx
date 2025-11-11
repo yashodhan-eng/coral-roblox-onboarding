@@ -66,7 +66,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 Code & Create: Build With Roblox
               </h1>
               <p className="font-poppins text-[14px] md:text-[18px] text-secondary font-medium tracking-wide">
-                Live, weekly classes where <span className="text-accent">kids ages 8–13</span> learn to code, design, and build their own 3D worlds in Roblox.
+                Live, weekly classes where kids code and build 3D worlds in Roblox.
               </p>
             </div>
 
@@ -105,7 +105,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
                       {/* Quote */}
                       <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
-                        "My daughter can't stop talking about the geckos and reptiles she saw in class!"
+                        "My son looks forward to this class every week! He's learned so much about game design while having fun."
                       </p>
 
                       {/* Parent Info */}
@@ -117,10 +117,10 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                         </div>
                         <div>
                           <p className="font-poppins font-medium text-[13px] text-[#333333]">
-                            Jennifer
+                            Jessica
                           </p>
                           <p className="font-poppins text-[13px] text-[#777777]">
-                            California
+                            CA
                           </p>
                         </div>
                       </div>
@@ -145,7 +145,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
                       {/* Quote */}
                       <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
-                        "This class brought science to life — she looks forward to it every week."
+                        "Super engaging! My daughter's confidence in coding really grew — she even built her own mini game."
                       </p>
 
                       {/* Parent Info */}
@@ -160,7 +160,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                             Mark
                           </p>
                           <p className="font-poppins text-[13px] text-[#777777]">
-                            Texas
+                            NY
                           </p>
                         </div>
                       </div>
@@ -168,6 +168,45 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   </CarouselItem>
 
                   {/* Testimonial 3 */}
+                  <CarouselItem>
+                    <div 
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
+                      style={{
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                      }}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                      </div>
+
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "The teachers are amazing. They make coding simple and creative — my 10-year-old absolutely loves it."
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            A
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Alyssa
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            TX
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+
+                  {/* Testimonial 4 */}
                   <CarouselItem>
                     <div 
                       className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
@@ -185,61 +224,22 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
                       {/* Quote */}
                       <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
-                        "Great mix of learning and fun. My son now knows the difference between reptiles and amphibians!"
+                        "Great introduction to Roblox Studio. The class could use more advanced challenges, but it's perfect for beginners."
                       </p>
 
                       {/* Parent Info */}
                       <div className="flex items-center gap-3">
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                           <span className="font-poppins font-semibold text-[14px] text-white">
-                            O
+                            S
                           </span>
                         </div>
                         <div>
                           <p className="font-poppins font-medium text-[13px] text-[#333333]">
-                            Olivia
+                            Sophie
                           </p>
                           <p className="font-poppins text-[13px] text-[#777777]">
-                            Florida
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-
-                  {/* Testimonial 4 */}
-                  <CarouselItem>
-                    <div 
-                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
-                      style={{
-                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
-                      }}
-                    >
-                      {/* Star Rating */}
-                      <div className="flex items-center gap-1 mb-3">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
-                        ))}
-                      </div>
-
-                      {/* Quote */}
-                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
-                        "The teacher made reptiles fascinating — my kid even shared facts at dinner."
-                      </p>
-
-                      {/* Parent Info */}
-                      <div className="flex items-center gap-3">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                          <span className="font-poppins font-semibold text-[14px] text-white">
-                            P
-                          </span>
-                        </div>
-                        <div>
-                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
-                            Priya
-                          </p>
-                          <p className="font-poppins text-[13px] text-[#777777]">
-                            New York
+                            WA
                           </p>
                         </div>
                       </div>
@@ -264,22 +264,22 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
                       {/* Quote */}
                       <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
-                        "Seeing live reptiles during class kept my child completely engaged."
+                        "My kid went from just playing Roblox to actually building his own worlds — that's incredible progress."
                       </p>
 
                       {/* Parent Info */}
                       <div className="flex items-center gap-3">
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                           <span className="font-poppins font-semibold text-[14px] text-white">
-                            E
+                            D
                           </span>
                         </div>
                         <div>
                           <p className="font-poppins font-medium text-[13px] text-[#333333]">
-                            Ethan
+                            Daniel
                           </p>
                           <p className="font-poppins text-[13px] text-[#777777]">
-                            Washington
+                            FL
                           </p>
                         </div>
                       </div>
@@ -303,22 +303,22 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
                       {/* Quote */}
                       <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
-                        "Into the Wild was the highlight of our week — educational and exciting!"
+                        "Fantastic mix of coding and creativity. Every week my child surprises me with what she's made!"
                       </p>
 
                       {/* Parent Info */}
                       <div className="flex items-center gap-3">
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
                           <span className="font-poppins font-semibold text-[14px] text-white">
-                            S
+                            P
                           </span>
                         </div>
                         <div>
                           <p className="font-poppins font-medium text-[13px] text-[#333333]">
-                            Sofia
+                            Priya
                           </p>
                           <p className="font-poppins text-[13px] text-[#777777]">
-                            Oregon
+                            NJ
                           </p>
                         </div>
                       </div>
@@ -331,7 +331,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Schedule Line */}
             <div className="text-center mb-3 md:mb-5">
               <p className="font-inter text-[13px] md:text-[15px] text-accent italic font-medium">
-                Classes every Thursday at 5:00 PM PST.
+                Classes every Wednesday at 5:00 PM PST.
               </p>
             </div>
 
@@ -435,11 +435,11 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 onClick={onContinue}
                 className="h-[46px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
                          text-white rounded-full
-                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
+                         shadow-[0_3px_10px_rgba(230,59,142,0.25)] hover:shadow-[0_6px_20px_rgba(230,59,142,0.35)]
                          hover:scale-[1.02] active:scale-[0.98] 
                          transition-all duration-200"
                 style={{ 
-                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
+                  background: 'linear-gradient(180deg, #E63B8E 0%, #D41A75 100%)'
                 }}
               >
                  Try for Free
@@ -526,10 +526,10 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
-                          The Philippines
+                          Obby Game
                         </h4>
                         <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
-                          Flying lizards & rare island species
+                          Build your first obstacle course & explore movement mechanics.
                         </p>
                       </div>
                     </div>
@@ -543,10 +543,10 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
-                          Tasmania
+                          Terrain Editor
                         </h4>
                         <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
-                          Native amphibians from a unique ecosystem
+                          Design stunning 3D landscapes with Roblox Studio tools.
                         </p>
                       </div>
                     </div>
@@ -560,10 +560,27 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
-                          New Zealand
+                          Euphoria Emporium – Part 1
                         </h4>
                         <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
-                          Ancient reptiles like the tuatara & their island adaptations
+                          Create your own Emporium layout & aesthetic design.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Week 4 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 4
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          Euphoria Emporium – Part 2
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Add lighting, mood, & effects to bring your Emporium to life.
                         </p>
                       </div>
                     </div>
@@ -619,11 +636,11 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 onClick={onContinue}
                 className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
                          text-white rounded-full
-                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
+                         shadow-[0_3px_10px_rgba(230,59,142,0.25)] hover:shadow-[0_6px_20px_rgba(230,59,142,0.35)]
                          hover:scale-[1.02] active:scale-[0.98] 
                          transition-all duration-200"
                 style={{ 
-                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
+                  background: 'linear-gradient(180deg, #E63B8E 0%, #D41A75 100%)'
                 }}
               >
                  Try for Free
