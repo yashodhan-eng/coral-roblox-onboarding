@@ -53,7 +53,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
           <div className="w-full max-w-[900px] mx-auto px-6 md:px-10 lg:px-20">
             {/* Ages Tag - Moved Above Title */}
             <div className="text-center mb-2.5 md:mb-4">
-              <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-3 md:px-[14px] py-1 md:py-[6px]">
+              <div className="inline-block bg-[#FFEBE8] border border-primary rounded-full px-3 md:px-[14px] py-1 md:py-[6px]">
                 <span className="font-poppins font-medium text-[13px] md:text-[14px] text-primary">
                   Ages 8–13
                 </span>
@@ -435,11 +435,11 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 onClick={onContinue}
                 className="h-[46px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
                          text-white rounded-full
-                         shadow-[0_3px_10px_rgba(230,59,142,0.25)] hover:shadow-[0_6px_20px_rgba(230,59,142,0.35)]
+                         shadow-[0_3px_10px_rgba(255,81,58,0.25)] hover:shadow-[0_6px_20px_rgba(255,81,58,0.35)]
                          hover:scale-[1.02] active:scale-[0.98] 
                          transition-all duration-200"
                 style={{ 
-                  background: 'linear-gradient(180deg, #E63B8E 0%, #D41A75 100%)'
+                  background: 'linear-gradient(180deg, #FF513A 0%, #E6432E 100%)'
                 }}
               >
                  Try for Free
@@ -636,11 +636,11 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 onClick={onContinue}
                 className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
                          text-white rounded-full
-                         shadow-[0_3px_10px_rgba(230,59,142,0.25)] hover:shadow-[0_6px_20px_rgba(230,59,142,0.35)]
+                         shadow-[0_3px_10px_rgba(255,81,58,0.25)] hover:shadow-[0_6px_20px_rgba(255,81,58,0.35)]
                          hover:scale-[1.02] active:scale-[0.98] 
                          transition-all duration-200"
                 style={{ 
-                  background: 'linear-gradient(180deg, #E63B8E 0%, #D41A75 100%)'
+                  background: 'linear-gradient(180deg, #FF513A 0%, #E6432E 100%)'
                 }}
               >
                  Try for Free
