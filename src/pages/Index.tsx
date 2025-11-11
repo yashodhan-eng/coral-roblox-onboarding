@@ -4,6 +4,7 @@ import { LandingScreen } from "@/components/LandingScreen";
 import { QuestionScreen } from "@/components/QuestionScreen";
 import { MultiSelectScreen } from "@/components/MultiSelectScreen";
 import { InputScreen } from "@/components/InputScreen";
+import { PhoneCallbackScreen } from "@/components/PhoneCallbackScreen";
 import { ThankYouScreen } from "@/components/ThankYouScreen";
 import { BackgroundTheme } from "@/components/BackgroundTheme";
 import { contentSchema, OnboardingAnswers } from "@/data/contentSchema";
@@ -14,6 +15,7 @@ import q1Hero from "@/assets/mbs-hero.jpg";
 import screen2Hero from "@/assets/mbs-hero-2.jpg";
 import screen4Hero from "@/assets/mbs-hero-3.jpg";
 import screen5Hero from "@/assets/mbs-hero-4.jpg";
+import phoneHero from "@/assets/mbs-hero-4.jpg"; // Using same image for phone step
 
 const STORAGE_KEY = "coralOnboardingAnswers";
 const SUBMISSION_KEY = "coralOnboardingSubmission";
@@ -98,10 +100,18 @@ const Index = () => {
     setCurrentStep(4);
   };
 
-  const handleEmailSubmit = async (email: string, recaptchaToken?: string | null) => {
+  const handleEmailSubmit = (email: string) => {
+    const newAnswers = { ...answers, email };
+    setAnswers(newAnswers);
+    setCurrentStep(5); // Move to phone step
+  };
+
+  const handlePhoneSubmit = async (phone: string, preferredDay: string, preferredTime: string, recaptchaToken: string | null) => {
     const finalAnswers = { 
       ...answers, 
-      email,
+      phone: phone || undefined,
+      preferred_day: preferredDay || undefined,
+      preferred_time: preferredTime || undefined,
       timestamp: Date.now()
     };
     setAnswers(finalAnswers);
@@ -113,13 +123,12 @@ const Index = () => {
     setIsSubmitting(true);
     try {
       await submitToBackend(finalAnswers, recaptchaToken);
-      const response = await adCampaignService.signin({ email, recaptchaToken });
+      const response = await adCampaignService.signin({ email: finalAnswers.email!, recaptchaToken });
       console.log('Signin response:', response);
       const navlink = response.magicLink || response.magic_link;
       if (navlink) {
         setIsSubmitting(false);
         setIsSubmitted(true);
-        // window.location.href = navlink;
         contentSchema.redirectUrl = navlink;
         setRedirectUrl(navlink);
         console.log('Redirecting to:', contentSchema.redirectUrl);
@@ -181,12 +190,17 @@ const Index = () => {
   };
 
   if (isSubmitted && redirectUrl) {
+    const hasPhone = answers.phone && answers.phone.trim().length > 0;
+    const thankYouSubtext = hasPhone 
+      ? contentSchema.thankyou.subtextWithCallback 
+      : contentSchema.thankyou.subtext;
+
     return (
       <div className="min-h-screen bg-background relative">
         <BackgroundTheme />
         <ThankYouScreen
           title={contentSchema.thankyou.title}
-          subtext={contentSchema.thankyou.subtext}
+          subtext={thankYouSubtext}
           delayMs={contentSchema.thankyou.delayMs}
           redirectUrl={redirectUrl}
         />
@@ -213,7 +227,7 @@ const Index = () => {
       {currentStep > 0 && (
         <TopNav 
           currentStep={currentStep} 
-          totalSteps={4}
+          totalSteps={5}
         />
       )}
 
@@ -288,12 +302,21 @@ const Index = () => {
             step={4}
             title={contentSchema.email.title}
             label={contentSchema.email.label}
-            type="email"
+            type="text"
             buttonText={contentSchema.email.button}
-            onSubmit={handleEmailSubmit}
+            onSubmit={(email) => handleEmailSubmit(email)}
             validator={emailValidator}
             onBack={handleBack}
             heroImage={screen5Hero}
+          />
+        )}
+
+        {currentStep === 5 && (
+          <PhoneCallbackScreen
+            step={5}
+            onSubmit={handlePhoneSubmit}
+            onBack={handleBack}
+            heroImage={phoneHero}
           />
         )}
       </main>
