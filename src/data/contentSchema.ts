@@ -37,7 +37,7 @@ export const contentSchema = {
   },
   phone: {
     title: "Would you like a quick call to help you get started?",
-    subtext: "Optional — share your phone number if you'd like a short 2–5 min call to help you get started with Coral Academy.",
+    subtext: "Share your phone number to book a quick call and get help from us in starting your free trial classes.",
     label: "Enter your phone number (optional)",
     button: "Skip & Submit",
     buttonWithPhone: "Finish",
