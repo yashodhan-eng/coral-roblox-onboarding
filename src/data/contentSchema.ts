@@ -32,7 +32,7 @@ export const contentSchema = {
   },
   email: {
     title: "Kindly share your email address",
-    label: "Enter your email",
+    label: "Enter Your Email",
     button: "Next"
   },
   phone: {

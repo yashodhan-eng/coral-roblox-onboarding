@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 import { ChevronLeft } from "lucide-react";
 import { contentSchema } from "@/data/contentSchema";
 
@@ -142,20 +142,20 @@ export const PhoneCallbackScreen = ({
           <span className="font-poppins text-sm md:text-base">Back</span>
         </button>
 
-        {/* Step Indicator */}
+        {/* Optional Badge */}
         <div className="mb-3 md:mb-4">
           <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs md:text-sm font-poppins font-medium">
-            Step {step}/5
+            Optional
           </span>
         </div>
 
         {/* Title */}
-        <h2 className="font-fredoka text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-3 md:mb-4 leading-tight">
+        <h2 className="font-fredoka text-xl md:text-2xl font-semibold text-foreground mb-2 md:mb-3 leading-tight">
           {contentSchema.phone.title}
         </h2>
 
         {/* Subtext */}
-        <p className="font-poppins text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
+        <p className="font-poppins text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
           {contentSchema.phone.subtext}
         </p>
 
@@ -191,49 +191,39 @@ export const PhoneCallbackScreen = ({
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-4">
                 {/* Preferred Day */}
-                <div className="space-y-2">
-                  <Label 
-                    htmlFor="preferred-day" 
-                    className="font-poppins text-sm md:text-base text-foreground font-medium"
-                  >
+                <div className="space-y-3">
+                  <Label className="font-poppins text-sm md:text-base text-foreground font-medium">
                     Preferred Day
                   </Label>
-                  <Select value={preferredDay} onValueChange={setPreferredDay}>
-                    <SelectTrigger id="preferred-day" className="h-12 md:h-14 font-poppins">
-                      <SelectValue placeholder="Select a day" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {contentSchema.phone.dayOptions.map((day) => (
-                        <SelectItem key={day} value={day} className="font-poppins">
+                  <RadioGroup value={preferredDay} onValueChange={setPreferredDay} className="space-y-2">
+                    {contentSchema.phone.dayOptions.map((day) => (
+                      <div key={day} className="flex items-center space-x-3">
+                        <RadioGroupItem value={day} id={`day-${day}`} />
+                        <Label htmlFor={`day-${day}`} className="font-poppins text-sm md:text-base cursor-pointer">
                           {day}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
                 </div>
 
                 {/* Preferred Time */}
-                <div className="space-y-2">
-                  <Label 
-                    htmlFor="preferred-time" 
-                    className="font-poppins text-sm md:text-base text-foreground font-medium"
-                  >
+                <div className="space-y-3">
+                  <Label className="font-poppins text-sm md:text-base text-foreground font-medium">
                     Preferred Time
                   </Label>
-                  <Select value={preferredTime} onValueChange={setPreferredTime}>
-                    <SelectTrigger id="preferred-time" className="h-12 md:h-14 font-poppins">
-                      <SelectValue placeholder="Select a time" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {contentSchema.phone.timeOptions.map((time) => (
-                        <SelectItem key={time} value={time} className="font-poppins">
+                  <RadioGroup value={preferredTime} onValueChange={setPreferredTime} className="space-y-2">
+                    {contentSchema.phone.timeOptions.map((time) => (
+                      <div key={time} className="flex items-center space-x-3">
+                        <RadioGroupItem value={time} id={`time-${time}`} />
+                        <Label htmlFor={`time-${time}`} className="font-poppins text-sm md:text-base cursor-pointer">
                           {time}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
                 </div>
               </div>
             </div>
