@@ -1,6 +1,6 @@
 import coralLogo from "@/assets/coral-academy-logo.png";
 import heroImage from "@/assets/reptiles-hero.webp";
-import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin, Star, Award, Users, GraduationCap } from "lucide-react";
+import { Gamepad2, Code, Box, Rocket, ChevronDown, Calendar, PlayCircle, MapPin, Star, Award, Users, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
@@ -63,10 +63,10 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Title Section */}
             <div className="text-center mb-3 md:mb-6">
               <h1 className="font-poppins font-semibold text-[24px] md:text-[32px] lg:text-[36px] text-foreground mb-2.5 md:mb-3 tracking-tight leading-tight">
-                Into the Wild: Exploring Reptiles & Amphibians
+                Code & Create: Build With Roblox
               </h1>
               <p className="font-poppins text-[14px] md:text-[18px] text-secondary font-medium tracking-wide">
-                Live, weekly, science classes with real reptiles & amphibians
+                Live, weekly classes where <span className="text-accent">kids ages 8–13</span> learn to code, design, and build their own 3D worlds in Roblox.
               </p>
             </div>
 
@@ -456,35 +456,35 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Learning Outcomes Section */}
             <div className="mb-10 md:mb-12">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[700px] mx-auto">
-                {/* Learn About Real Reptiles */}
+                {/* Learn game design basics */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Bug className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
+                  <Gamepad2 className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Learn About Real Reptiles
+                    Learn game design basics in Roblox Studio
                   </p>
                 </div>
                 
-                {/* Explore Amphibians Up Close */}
+                {/* Code and customize */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Droplets className="w-6 h-6 text-secondary mb-2" strokeWidth={2} />
+                  <Code className="w-6 h-6 text-secondary mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Explore Amphibians Up Close
+                    Code and customize their own 3D worlds
                   </p>
                 </div>
                 
-                {/* Discover Unique Animal Facts */}
+                {/* Experiment with tools */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Microscope className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
+                  <Box className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Discover Unique Animal Facts
+                    Experiment with tools, effects, and game physics
                   </p>
                 </div>
                 
-                {/* Travel Virtually to Wild Places */}
+                {/* Publish creations */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Globe className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
+                  <Rocket className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Travel Virtually to Wild Places
+                    Publish creations and share them with others
                   </p>
                 </div>
               </div>
@@ -580,7 +580,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   A Sneak Peek of Our Class
                 </h2>
                 <p className="font-inter text-[15px] text-accent">
-                  See what makes each session fun, interactive, and full of discovery
+                  See how our Roblox sessions turn coding, design, and creativity into hands-on fun every week.
                 </p>
               </div>
 
